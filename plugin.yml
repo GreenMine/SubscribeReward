@@ -1,0 +1,9 @@
+name: SubscribeReward
+main: GreenMine\SubscribeReward\Main
+version: 0.0.1
+api: 3.8.5
+load: POSTWORLD
+author: GreenMine
+description: Вознаграждение за подписку на сообщество
+website: https://github.com/GreenMine
+
