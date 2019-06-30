@@ -8,8 +8,6 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\item\Item;
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\CommandSender;
-use pocketmine\command\Command;
 use GreenMine\VKBinding\Loader;
 use pocketmine\utils\Config;
 
@@ -28,9 +26,10 @@ class Main extends PluginBase implements Listener {
 	    $api = Loader::getInstance();
 	    $api->setPlayer($name);
 	    if($api->isSubscribe()) {
-	        if($this->cfg->exists($name)) {
+	        if(!$this->cfg->exists($name)) {
                 $player->getInventory()->addItem(Item::get(322, 0, 64));
                 $this->cfg->set($name, 1);
+                $this->cfg->save();
             }
         }
     }
